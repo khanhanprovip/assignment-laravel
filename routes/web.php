@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 Route::get('/', function () {
-    return view('home');
-})->name('home');
+    return view('product.home');
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +44,10 @@ Route::prefix('product')->group(function () {
 | Sinh viên
 |--------------------------------------------------------------------------
 */
+Route::get('/student/info', function () {
+    return view('student.info');
+})->name('student.info');
+
 Route::get('/sinhvien/{name?}/{mssv?}', function (
     $name = 'Nguyen Khanh An',
     $mssv = '4005867'
@@ -61,7 +65,7 @@ Route::get('/sinhvien/{name?}/{mssv?}', function (
 |--------------------------------------------------------------------------
 */
 Route::get('/banco/{n}', function ($n) {
-    return view('banco', compact('n'));
+    return view('product.banco', compact('n'));
 });
 
 /*
