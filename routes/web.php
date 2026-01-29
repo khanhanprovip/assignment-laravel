@@ -76,3 +76,12 @@ Route::get('/banco/{n}', function ($n) {
 Route::fallback(function () {
     return view('error.404');
 });
+/*
+|--------------------------------------------------------------------------
+| Signin
+|--------------------------------------------------------------------------
+*/
+use App\Http\Controllers\AuthController;
+
+Route::get('/signin', [AuthController::class, 'signIn'])->name('signin');
+Route::post('/signin', [AuthController::class, 'checkSignIn'])->name('check.signin');
