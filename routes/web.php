@@ -94,7 +94,8 @@ use Illuminate\Http\Request;
 
 Route::get('/age', function () {
     return view('age');
-});
+})->name('age.form');
+
 
 Route::post('/set-age', function (Request $request) {
     session(['age' => $request->age]);
