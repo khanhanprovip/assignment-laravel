@@ -85,3 +85,26 @@ use App\Http\Controllers\AuthController;
 
 Route::get('/signin', [AuthController::class, 'signIn'])->name('signin');
 Route::post('/signin', [AuthController::class, 'checkSignIn'])->name('check.signin');
+/*
+|--------------------------------------------------------------------------
+| Age
+|--------------------------------------------------------------------------
+*/
+use Illuminate\Http\Request;
+
+Route::get('/age', function () {
+    return view('age');
+});
+
+Route::post('/set-age', function (Request $request) {
+    session(['age' => $request->age]);
+    return "Đã lưu tuổi vào session";
+});
+/*
+|--------------------------------------------------------------------------
+| Test Age
+|--------------------------------------------------------------------------
+*/
+Route::get('/test-age', function () {
+    return 'Đã đủ tuổi';
+})->middleware('check.age');
