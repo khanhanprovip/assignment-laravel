@@ -109,3 +109,11 @@ Route::post('/set-age', function (Request $request) {
 Route::get('/test-age', function () {
     return 'Đã đủ tuổi';
 })->middleware('check.age');
+/*
+|--------------------------------------------------------------------------
+| Categories
+|--------------------------------------------------------------------------
+*/
+use App\Http\Controllers\CategoryController;
+
+Route::resource('categories', CategoryController::class);
